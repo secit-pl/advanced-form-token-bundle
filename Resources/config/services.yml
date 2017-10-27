@@ -1,0 +1,23 @@
+services:
+    _defaults:
+        public: false
+
+    security.javascript_csrf.token_storage:
+        class: Symfony\Component\Security\Csrf\TokenStorage\SessionTokenStorage
+        arguments: ['@session', '_javascript_csrf']
+
+    security.javascript_csrf.token_manager:
+        class: Symfony\Component\Security\Csrf\CsrfTokenManager
+        arguments: ['@security.csrf.token_generator', '@security.javascript_csrf.token_storage']
+
+    form.type_extension.javascript_csrf:
+        class: SecIT\JavascriptFormCsrfProtectionBundle\Form\Extension\JavascriptCsrf\Type\FormTypeJavascriptCsrfExtension
+        arguments:
+            - '@security.javascript_csrf.token_manager'
+            - '%form.type_extension.javascript_csrf.enabled%'
+            - '%form.type_extension.javascript_csrf.field_name%'
+            - '@translator'
+            - '%validator.translation_domain%'
+            - '@form.server_params'
+        tags:
+            - {name: form.type_extension, extended_type: Symfony\Component\Form\Extension\Core\Type\FormType}

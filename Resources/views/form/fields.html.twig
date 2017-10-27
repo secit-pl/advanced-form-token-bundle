@@ -1,0 +1,4 @@
+{% block javascript_csrf_token_widget %}
+    <input type="hidden" {{ block('widget_attributes') }}/>
+    <script type="text/javascript">document.getElementById('{{ id }}').value = '{{ value }}';</script>
+{% endblock %}
