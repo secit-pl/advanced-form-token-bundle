@@ -34,6 +34,10 @@ class Configuration implements ConfigurationInterface
                             ->cannotBeEmpty()
                             ->defaultValue('_jstoken')
                         ->end()
+                        ->scalarNode('javascript_obfuscator')
+                            ->isRequired()
+                            ->defaultNull()
+                        ->end()
                     ->end()
             ->end()
         ;

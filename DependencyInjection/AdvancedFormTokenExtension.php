@@ -24,6 +24,7 @@ class AdvancedFormTokenExtension extends Extension
 
         $container->setParameter('form.type_extension.javascript_csrf.enabled', $config['javascript_token']['enabled']);
         $container->setParameter('form.type_extension.javascript_csrf.field_name', $config['javascript_token']['field_name']);
+        $container->setParameter('form.type_extension.javascript_csrf.javascript_obfuscator', $config['javascript_token']['javascript_obfuscator']);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');

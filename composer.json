@@ -16,6 +16,9 @@
     "symfony/framework-bundle": "~2.8|~3.0|~4.0",
     "symfony/dependency-injection": "~2.8|~3.0|~4.0"
   },
+  "suggest": {
+    "tholu/php-packer": "Allows simple JavaScript form token JavaScript code obfuscation"
+  },
   "autoload": {
     "psr-4": { "SecIT\\AdvancedFormTokenBundle\\": "" }
   }

@@ -16,8 +16,15 @@ services:
             - '@security.javascript_csrf.token_manager'
             - '%form.type_extension.javascript_csrf.enabled%'
             - '%form.type_extension.javascript_csrf.field_name%'
+            - '%form.type_extension.javascript_csrf.javascript_obfuscator%'
             - '@translator'
             - '%validator.translation_domain%'
             - '@form.server_params'
         tags:
             - {name: form.type_extension, extended_type: Symfony\Component\Form\Extension\Core\Type\FormType}
+
+    advanced_form_token.twig_extension:
+        class: SecIT\AdvancedFormTokenBundle\Twig\AdvancedFormTokenExtension
+        public: false
+        tags:
+            - { name: twig.extension }

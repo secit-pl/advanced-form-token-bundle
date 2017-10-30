@@ -15,7 +15,7 @@ use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use Symfony\Component\Translation\TranslatorInterface;
 
 /**
- * Class FormTypeJavascriptCsrfExtension
+ * Class FormTypeJavascriptCsrfExtension.
  *
  * This class is based on the Symfony\Component\Form\Extension\Csrf\Type\FormTypeCsrfExtension
  * created by Bernhard Schussek. Base file was taken from the Symfony in version 3.3.10.
@@ -40,6 +40,11 @@ class FormTypeJavascriptCsrfExtension extends AbstractTypeExtension
     private $defaultFieldName;
 
     /**
+     * @var null|string
+     */
+    private $defaultJavascriptObfuscator;
+
+    /**
      * @var TranslatorInterface
      */
     private $translator;
@@ -60,6 +65,7 @@ class FormTypeJavascriptCsrfExtension extends AbstractTypeExtension
      * @param CsrfTokenManagerInterface $defaultTokenManager
      * @param bool                      $defaultEnabled
      * @param string                    $defaultFieldName
+     * @param null|string               $defaultJavascriptObfuscator
      * @param TranslatorInterface|null  $translator
      * @param null                      $translationDomain
      * @param ServerParams|null         $serverParams
@@ -68,6 +74,7 @@ class FormTypeJavascriptCsrfExtension extends AbstractTypeExtension
         CsrfTokenManagerInterface $defaultTokenManager,
         $defaultEnabled = false,
         $defaultFieldName = '_jstoken',
+        $defaultJavascriptObfuscator = null,
         TranslatorInterface $translator = null,
         $translationDomain = null, ServerParams
         $serverParams = null
@@ -75,6 +82,7 @@ class FormTypeJavascriptCsrfExtension extends AbstractTypeExtension
         $this->defaultTokenManager = $defaultTokenManager;
         $this->defaultEnabled = $defaultEnabled;
         $this->defaultFieldName = $defaultFieldName;
+        $this->defaultJavascriptObfuscator = $defaultJavascriptObfuscator;
         $this->translator = $translator;
         $this->translationDomain = $translationDomain;
         $this->serverParams = $serverParams;
@@ -116,7 +124,10 @@ class FormTypeJavascriptCsrfExtension extends AbstractTypeExtension
                 'mapped' => false,
             ]);
 
-            $view->children[$options['javascript_csrf_field_name']] = $csrfForm->createView($view);
+            $formView = $csrfForm->createView($view);
+            $formView->vars['obfuscator'] =  $options['javascript_csrf_javascript_obfuscator'];
+
+            $view->children[$options['javascript_csrf_field_name']] = $formView;
         }
     }
 
@@ -131,6 +142,7 @@ class FormTypeJavascriptCsrfExtension extends AbstractTypeExtension
             'javascript_csrf_message' => 'The JSCSRF token is invalid. Please try to resubmit the form.',
             'javascript_csrf_token_manager' => $this->defaultTokenManager,
             'javascript_csrf_token_id' => null,
+            'javascript_csrf_javascript_obfuscator' => $this->defaultJavascriptObfuscator,
         ));
     }
 
