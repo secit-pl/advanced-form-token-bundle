@@ -1,6 +1,6 @@
 <?php
 
-namespace SecIT\JavascriptFormCsrfProtectionBundle\Form\Type;
+namespace SecIT\AdvancedFormTokenBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;

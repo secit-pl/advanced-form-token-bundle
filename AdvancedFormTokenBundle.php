@@ -1,17 +1,17 @@
 <?php
 
-namespace SecIT\JavascriptFormCsrfProtectionBundle;
+namespace SecIT\AdvancedFormTokenBundle;
 
-use SecIT\JavascriptFormCsrfProtectionBundle\DependencyInjection\Compiler\TwigFormPass;
+use SecIT\AdvancedFormTokenBundle\DependencyInjection\Compiler\TwigFormPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
- * Class JavascriptFormCsrfProtectionBundle.
+ * Class AdvancedFormTokenBundle.
  *
  * @author Tomasz Gemza
  */
-class JavascriptFormCsrfProtectionBundle extends Bundle
+class AdvancedFormTokenBundle extends Bundle
 {
     /**
      * {@inheritdoc}

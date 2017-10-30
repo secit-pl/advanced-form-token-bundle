@@ -1,7 +1,7 @@
 {
-  "name": "secit-pl/javascript-form-csrf-token",
+  "name": "secit-pl/advanced-form-token",
   "type": "symfony-bundle",
-  "description": "JavaScript version of the Symfony form token.",
+  "description": "Advanced implementation of the Symfony form token.",
   "keywords": ["form", "token", "csrf", "javascript", "symfony", "bundle"],
   "homepage": "http://secit.pl",
   "license": "MIT",
@@ -17,6 +17,6 @@
     "symfony/dependency-injection": "~2.8|~3.0|~4.0"
   },
   "autoload": {
-    "psr-4": { "SecIT\\JavascriptFormCsrfProtectionBundle\\": "" }
+    "psr-4": { "SecIT\\AdvancedFormTokenBundle\\": "" }
   }
 }

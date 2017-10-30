@@ -1,6 +1,6 @@
 <?php
 
-namespace SecIT\JavascriptFormCsrfProtectionBundle\DependencyInjection;
+namespace SecIT\AdvancedFormTokenBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -18,16 +18,23 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('javascript_form_csrf_protection');
+        $rootNode = $treeBuilder->root('advanced_form_token');
 
         $rootNode
             ->children()
-                ->booleanNode('enabled')
-                    ->defaultFalse()
-                ->end()
-                ->scalarNode('field_name')
-                    ->defaultValue('_jstoken')
-                ->end()
+                ->arrayNode('javascript_token')
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->booleanNode('enabled')
+                            ->isRequired()
+                            ->defaultFalse()
+                        ->end()
+                        ->scalarNode('field_name')
+                            ->isRequired()
+                            ->cannotBeEmpty()
+                            ->defaultValue('_jstoken')
+                        ->end()
+                    ->end()
             ->end()
         ;
 

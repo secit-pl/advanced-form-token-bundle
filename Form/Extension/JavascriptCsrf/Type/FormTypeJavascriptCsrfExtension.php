@@ -1,8 +1,8 @@
 <?php
 
-namespace SecIT\JavascriptFormCsrfProtectionBundle\Form\Extension\JavascriptCsrf\Type;
+namespace SecIT\AdvancedFormTokenBundle\Form\Extension\JavascriptCsrf\Type;
 
-use SecIT\JavascriptFormCsrfProtectionBundle\Form\Type\JavascriptCsrfTokenType;
+use SecIT\AdvancedFormTokenBundle\Form\Type\JavascriptCsrfTokenType;
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Csrf\EventListener\CsrfValidationListener;

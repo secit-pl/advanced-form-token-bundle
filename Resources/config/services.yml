@@ -10,7 +10,7 @@ services:
         arguments: ['@security.csrf.token_generator', '@security.javascript_csrf.token_storage']
 
     form.type_extension.javascript_csrf:
-        class: SecIT\JavascriptFormCsrfProtectionBundle\Form\Extension\JavascriptCsrf\Type\FormTypeJavascriptCsrfExtension
+        class: SecIT\AdvancedFormTokenBundle\Form\Extension\JavascriptCsrf\Type\FormTypeJavascriptCsrfExtension
         public: true
         arguments:
             - '@security.javascript_csrf.token_manager'

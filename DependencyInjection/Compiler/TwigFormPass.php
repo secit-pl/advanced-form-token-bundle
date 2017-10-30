@@ -1,6 +1,6 @@
 <?php
 
-namespace SecIT\JavascriptFormCsrfProtectionBundle\DependencyInjection\Compiler;
+namespace SecIT\AdvancedFormTokenBundle\DependencyInjection\Compiler;
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -22,7 +22,7 @@ class TwigFormPass implements CompilerPassInterface
         }
 
         $container->setParameter('twig.form.resources', array_merge(
-            ['JavascriptFormCsrfProtectionBundle:form:fields.html.twig'],
+            ['AdvancedFormTokenBundle:form:fields.html.twig'],
             $container->getParameter('twig.form.resources')
         ));
     }
