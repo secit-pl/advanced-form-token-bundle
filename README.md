@@ -12,7 +12,7 @@ This bundle provides the advanced form token implementation for Symfony 2.8 and 
 From the command line run
 
 ```
-$ composer require secit-pl/advanced-form-token
+$ composer require secit-pl/advanced-form-token-bundle
 ```
 
 Update your AppKernel by adding the bundle declaration
