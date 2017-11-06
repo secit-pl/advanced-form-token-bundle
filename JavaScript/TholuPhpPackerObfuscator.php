@@ -19,7 +19,7 @@ class TholuPhpPackerObfuscator implements ObfuscatorInterface
     public function __construct()
     {
         if (!class_exists(Packer::class)) {
-            throw new \ErrorException(sprintf($this->packerNotLoadedError), Packer::class);
+            throw new \ErrorException(sprintf($this->packerNotLoadedError, Packer::class));
         }
     }
 
