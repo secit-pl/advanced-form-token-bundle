@@ -1,5 +1,5 @@
 {
-  "name": "secit-pl/advanced-form-token",
+  "name": "secit-pl/advanced-form-token-bundle",
   "type": "symfony-bundle",
   "description": "Advanced implementation of the Symfony form token.",
   "keywords": ["form", "token", "csrf", "javascript", "symfony", "bundle"],
